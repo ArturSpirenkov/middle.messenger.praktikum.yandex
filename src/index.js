@@ -27,4 +27,3 @@ const routes = {
 const path = window.location.pathname;
 
 app.innerHTML = routes[path] || routes['/not-found'];
-
