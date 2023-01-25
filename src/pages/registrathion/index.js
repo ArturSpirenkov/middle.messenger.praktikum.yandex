@@ -29,7 +29,7 @@ const formInputLogin = Handlebars.compile(inputFormComponent)({
 
 const formInputFirstName = Handlebars.compile(inputFormComponent)({
   input: {
-    name: 'first-name',
+    name: 'first_name',
     label: {
       value: 'Имя',
     },
@@ -41,7 +41,7 @@ const formInputFirstName = Handlebars.compile(inputFormComponent)({
 
 const formInputSecondName = Handlebars.compile(inputFormComponent)({
   input: {
-    name: 'second-name',
+    name: 'second_name',
     label: {
       value: 'Фамилия',
     },
@@ -53,7 +53,7 @@ const formInputSecondName = Handlebars.compile(inputFormComponent)({
 
 const formInputPhone = Handlebars.compile(inputFormComponent)({
   input: {
-    name: 'number-phone',
+    name: 'phone',
     label: {
       value: 'Телефон',
     },
@@ -77,7 +77,7 @@ const formInputPassword = Handlebars.compile(inputFormComponent)({
 
 const formInputPasswordAgain = Handlebars.compile(inputFormComponent)({
   input: {
-    name: 'password-again',
+    name: 'password_again',
     label: {
       value: 'Подтвердите пароль',
     },

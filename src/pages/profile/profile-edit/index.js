@@ -26,7 +26,7 @@ const formInputLogin = Handlebars.compile(inputFormComponent)({
 const formInputFirstName = Handlebars.compile(inputFormComponent)({
   input: {
     value: 'Иван',
-    name: 'Name',
+    name: 'first_name',
     label: {
       value: 'Имя',
     },
@@ -36,7 +36,7 @@ const formInputFirstName = Handlebars.compile(inputFormComponent)({
 const formInputSecondName = Handlebars.compile(inputFormComponent)({
   input: {
     value: 'Иванов',
-    name: 'SecondName',
+    name: 'second_name',
     label: {
       value: 'Фамилия',
     },
@@ -46,7 +46,7 @@ const formInputSecondName = Handlebars.compile(inputFormComponent)({
 const formInputNameChat = Handlebars.compile(inputFormComponent)({
   input: {
     value: 'Иван',
-    name: 'NameChat',
+    name: 'display_name',
     label: {
       value: 'Имя в чате',
     },
@@ -56,7 +56,7 @@ const formInputNameChat = Handlebars.compile(inputFormComponent)({
 const formInputPhone = Handlebars.compile(inputFormComponent)({
   input: {
     value: '+7 (909) 967 30 30',
-    name: 'Phone',
+    name: 'phone',
     label: {
       value: 'Телефон',
     },

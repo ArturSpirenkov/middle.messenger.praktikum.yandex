@@ -1,3 +1,4 @@
+import 'normalize.css';
 import './assets/scss/index.scss';
 import Handlebars from 'handlebars';
 import HTMLsignin from './pages/signin/index.js';
@@ -27,4 +28,3 @@ const routes = {
 const path = window.location.pathname;
 
 app.innerHTML = routes[path] || routes['/not-found'];
-

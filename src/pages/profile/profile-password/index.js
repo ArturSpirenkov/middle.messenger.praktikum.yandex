@@ -6,7 +6,7 @@ import profilePassword from './profile-password.tpl.js';
 const formInputOldPassword = Handlebars.compile(inputFormComponent)({
   input: {
     value: 'oldpassword',
-    name: 'password',
+    name: 'password_old',
     label: {
       value: 'Старый пароль',
     },
@@ -26,7 +26,7 @@ const formInputNewPassword = Handlebars.compile(inputFormComponent)({
 const formInputRepeatPassword = Handlebars.compile(inputFormComponent)({
   input: {
     value: 'repeatPassword',
-    name: 'password',
+    name: 'password_again',
     label: {
       value: 'Повторите новый пароль',
     },
