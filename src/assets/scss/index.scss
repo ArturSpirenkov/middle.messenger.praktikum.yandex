@@ -1,0 +1,16 @@
+body {
+  position: relative;
+}
+
+.routes {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 100;
+  
+  // .routes__link
+
+  &__link {
+    font-size: 14px;
+  }
+}
