@@ -1,3 +1,4 @@
+import 'normalize.css';
 import './assets/scss/index.scss';
 import Handlebars from 'handlebars';
 import HTMLsignin from './pages/signin/index.js';
