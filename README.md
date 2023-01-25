@@ -1,6 +1,6 @@
 ### Messenger
 Messenger is the project of the middle frontEnd developer course by PracticumYandex.
-Project published [here]().
+Project published [here](https://cute-medovik-31e983.netlify.app).
 
 ### For development
 `git clone -b deploy git@github.com:ArturSpirenkov/middle.messenger.praktikum.yandex.git`
