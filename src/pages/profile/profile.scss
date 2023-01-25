@@ -1,0 +1,123 @@
+@use '../../../static/color-variables.scss' as var;
+
+.profile {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+
+    // .profile__aside-bar
+
+    &__aside-bar {
+      display: flex;
+      width: 65px;
+      background-color: #F8F1FF;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      div {
+        background-color: var.$bg-accent-one;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    // .profile__content
+
+    &__content {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+
+      // width: 510px;
+    }
+
+    // .profile__avatar
+
+    &__avatar {
+      background-color: #25093D;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      margin-top: 60px;
+    }
+
+    // .profile__name
+
+    &__name {
+      margin-top: 20px;
+      color: #25093D;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 16px;
+      margin-bottom: 60px;
+    }
+
+    // .profile__propertys
+
+    &__propertys {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      width: 510px;
+      padding: 0;
+      margin: 0;
+    }
+
+    // .profile__row-propertys
+
+    &__row-propertys {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #EAEAEA;
+      height: 35px;
+      &:nth-last-child(1) {
+        border-bottom: 0px solid;
+      }
+    }
+
+    &__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      width: 510px;
+    }
+}
+
+.profile {
+
+  &__links {
+    display: flex;
+    align-items: center;
+    margin-top: 70px;
+    
+  }
+
+  // .profile__link-propertys
+
+  &__link-propertys { 
+    display: flex;
+    border-bottom: 1px solid #EAEAEA;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+  }
+}
+
+.link {
+  
+  text-decoration: none;
+  color: var.$bg-accent-one;
+  // .link_color-red
+
+  &_color-red {
+    color: var.$error-color;
+  }
+}

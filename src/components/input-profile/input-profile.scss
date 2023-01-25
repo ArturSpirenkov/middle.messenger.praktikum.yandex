@@ -1,0 +1,27 @@
+@use '../../../static/color-variables.scss' as var;
+
+.input-profile {
+  display: flex;
+  width: 510px;
+  justify-content: space-between;
+  
+  // .input-box__label
+
+  &__label {
+    color: var.$bg-accent-two;
+  }
+
+  // .input-box__input
+
+  &__input {
+    text-align: end;
+    border: none;
+    &::placeholder{
+     color: var.$profile-proper;
+    } 
+  }
+}
+
+
+
+
