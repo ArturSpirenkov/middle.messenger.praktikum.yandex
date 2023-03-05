@@ -1,19 +1,11 @@
 @use '../../../static/color-variables.scss' as var;
 
-.wrapper-error {
-  background-color: var.$bg-color;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-}
 .error {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 
     // .error__status
 

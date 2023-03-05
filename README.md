@@ -21,3 +21,8 @@ http://localhost:2000/
 http://localhost:3000/
 
 ##### Design [here](https://www.figma.com/file/Y4ZitqMQqPmyDmV9k6HpEI/Chat?node-id=1%3A2)
+
+// input 
+// 1. Добавить проп errors
+// 2. Если erors.length > 0 тогда добавляем, которые подсвечивает все плохим цветом
+// 3. Сделать выавод ерорс перебором в шаблонизаторе

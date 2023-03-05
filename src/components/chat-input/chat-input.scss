@@ -1,0 +1,18 @@
+.content__form {
+  height: 50px;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 95%;
+}
+
+.input_send {
+  background-color: #F8F1FF;
+  border: none;
+  border-radius: 30px;
+  height: 32px;
+  padding-left: 20px;
+  width: 100%;
+}

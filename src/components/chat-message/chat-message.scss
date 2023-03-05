@@ -1,0 +1,57 @@
+.input {
+  background-color: aqua;
+}
+
+.message {
+  width: 40px;
+  min-width: 25%;
+  max-width: 40%;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  padding: 0 12px 12px;
+  margin-bottom: 10px;
+  position:relative;
+  margin: 10px 20px;
+  padding: 0;
+
+  // .message_right
+
+  &_right {
+    margin: 0 20px 0 auto;
+  }
+
+  // .message__image
+
+  &__image {
+    width: 20px;
+    height: 20px;
+  }
+
+  // .message__text
+
+  &__text {
+    word-break:break-all;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    padding-left: 5px;
+    color: purple;
+    display: inline-block;
+  }
+
+  // .message__time
+
+  &__time {
+    position: absolute;
+    width: 37px;
+    height: 15px;
+    bottom: 10px;
+    right: 10px;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(150, 78, 213, 0.5);
+    border-radius: 30px;
+  }
+}
