@@ -1,0 +1,29 @@
+@use '../../../static/color-variables.scss' as var;
+
+.button {
+  border: none;
+  box-sizing: border-box;
+  width: 273px;
+  height: 40px;
+  border-radius: 7px;
+  font-size: 14px;
+  color: var.$white;
+  background-color: var.$bg-accent-one;
+  
+  &_secondery {
+    background-color: var.$bg-accent-two;
+  }
+}
+
+.button-profile {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+  background: none;
+  border: none;
+  color: var.$bg-accent-one;
+  
+  &_secondery {
+    color: var.$error-color;
+  }
+}
