@@ -85,6 +85,10 @@ export const validationRules: { [key:string]: any } = {
       $message: `Длинна значения должна быть от ${low} до ${up} символов`,
     };
   },
+  notOnlyNumbers:{
+    $validator:(value: string) => isNaN(+value),
+    $message: 'Поле не может состоять только из цифр',
+  },
   email: {
     $validator: (value: string) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value),
     $message: 'Адрес электронной почты введен неверно',
@@ -92,5 +96,13 @@ export const validationRules: { [key:string]: any } = {
   oneLetterUppercased:{
     $validator:(value: string) => /(?=.*[A-Z])/.test(value),
     $message: 'Хотя бы одна буква заглавная',
+  },
+  isFirstLetterUppercase: {
+    $validator:(value: string) => /^[А-ЯЁA-Z]/.test(value),
+    $message: 'Первая буква должна быть заглавной',
+  },
+  doNotUseSpecialСharacters:{
+    $validator:(value: string) => /^[А-ЯЁA-Z][а-яёa-z-]*$/.test(value),
+    $message: 'Недопустимые спецсимволы',
   },
 };

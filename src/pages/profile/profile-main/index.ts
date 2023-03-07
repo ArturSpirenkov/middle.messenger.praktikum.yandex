@@ -9,6 +9,42 @@ import ValidityError from '../../../components/validity-error/index';
 // import { RegistrathionProps } from './types';
 import { Validation, validationRules } from '~src/libs/validation/validation';
 
+const formData = {
+  email: 'pochta@yandex.ru',
+  login: 'Ivanod314',
+  first_name: 'Иван',
+  second_name: 'Иванов',
+  phone: '+7(909)9673030',
+};
+
+const vRules = {
+  email: [
+    validationRules.required,
+    validationRules.email,
+  ],
+  login: [
+    validationRules.required,
+    validationRules.notOnlyNumbers,
+    validationRules.lengthBoundary(3,20),
+  ],
+  first_name: [
+    validationRules.required,
+    validationRules.isFirstLetterUppercase,
+    validationRules. doNotUseSpecialСharacters,
+  ],
+  second_name: [
+    validationRules.required,
+    validationRules.isFirstLetterUppercase,
+    validationRules. doNotUseSpecialСharacters,
+  ],
+  phone: [
+    validationRules.required,
+    validationRules.lengthBoundary(10,15),
+  ],
+};
+
+const $v = new Validation(formData, vRules);
+
 const labelElementEmail = new Label(
   'label',
   {
@@ -38,6 +74,22 @@ const inputElementEmail = new Input(
       name: 'email',
       type: 'text',
       placeholder: 'Почта',
+    },
+    events: {
+      blur: () => {
+        $v.$validation.email.$touch();
+        if ($v.$validation.email.$invalid) {
+          errorElementEmail.setProps(
+            { text: $v.$validation.email.$errors[0] });
+        }
+      },
+      focus: () => {
+        errorElementEmail.setProps({ text: '' });
+      },
+      input: (event: Event) => {
+        const target = (event.target as HTMLInputElement).value;
+        formData.email = target;
+      },
     },
   }
 );
@@ -87,11 +139,27 @@ const inputElementLogin = new Input(
       type: 'text',
       placeholder: 'Логин',
     },
+    events: {
+      blur: () => {
+        $v.$validation.login.$touch();
+        if ($v.$validation.login.$invalid) {
+          errorElementLogin.setProps(
+            { text: $v.$validation.login.$errors[0] });
+        }
+      },
+      focus: () => {
+        errorElementLogin.setProps({ text: '' });
+      },
+      input: (event: Event) => {
+        const target = (event.target as HTMLInputElement).value;
+        formData.login = target;
+      },
+    },
   }
 );
 
 const inputFormLogin = new InputForm(
-  'div',
+  'li',
   {
     tagAttrs: {
       class: 'profile__row-propertys',
@@ -135,11 +203,27 @@ const inputElementFirsName = new Input(
       type: 'text',
       placeholder: 'Имя',
     },
+    events: {
+      blur: () => {
+        $v.$validation.first_name.$touch();
+        if ($v.$validation.first_name.$invalid) {
+          errorElementFirstName.setProps(
+            { text: $v.$validation.first_name.$errors[0] });
+        }
+      },
+      focus: () => {
+        errorElementFirstName.setProps({ text: '' });
+      },
+      input: (event: Event) => {
+        const target = (event.target as HTMLInputElement).value;
+        formData.first_name = target;
+      },
+    },
   }
 );
 
 const inputFormFirstName = new InputForm(
-  'div',
+  'li',
   {
     tagAttrs: {
       class: 'profile__row-propertys',
@@ -182,11 +266,27 @@ const inputElementSecondName = new Input(
       type: 'text',
       placeholder: 'Фамилия',
     },
+    events: {
+      blur: () => {
+        $v.$validation.second_name.$touch();
+        if ($v.$validation.second_name.$invalid) {
+          errorElementSecondName.setProps(
+            { text: $v.$validation.second_name.$errors[0] });
+        }
+      },
+      focus: () => {
+        errorElementSecondName.setProps({ text: '' });
+      },
+      input: (event: Event) => {
+        const target = (event.target as HTMLInputElement).value;
+        formData.second_name = target;
+      },
+    },
   }
 );
 
 const inputFormSecondName = new InputForm(
-  'div',
+  'li',
   {
     tagAttrs: {
       class: 'profile__row-propertys',
@@ -227,14 +327,30 @@ const inputElementPhone = new Input(
       id: 'phone',
       name: 'phone',
       type: 'text',
-      value: '+7 (909) 967 30 30',
+      value: '+7(909)9673030',
       placeholder: 'Телефон',
+    },
+    events: {
+      blur: () => {
+        $v.$validation.phone.$touch();
+        if ($v.$validation.phone.$invalid) {
+          errorElementPhone.setProps(
+            { text: $v.$validation.phone.$errors[0] });
+        }
+      },
+      focus: () => {
+        errorElementPhone.setProps({ text: '' });
+      },
+      input: (event: Event) => {
+        const target = (event.target as HTMLInputElement).value;
+        formData.phone = target;
+      },
     },
   }
 );
 
 const inputFormPhone = new InputForm(
-  'div',
+  'li',
   {
     tagAttrs: {
       class: 'profile__row-propertys',
@@ -246,6 +362,7 @@ const inputFormPhone = new InputForm(
 );
 
 // // SUBMIT BUTTON
+
 const editDateButton = new Button(
   'a',
   {
@@ -253,6 +370,31 @@ const editDateButton = new Button(
     tagAttrs: {
       class: 'link',
       type: 'submit',
+    },
+    events: {
+      click: (event: Event) => {
+        event.preventDefault();
+        $v.$touch();
+        if ($v.$invalid) {
+          if ($v.$validation.login.$invalid) {
+            errorElementLogin.setProps({ text: $v.$validation.login.$errors[0] });
+          }
+          if ($v.$validation.first_name.$invalid) {
+            errorElementFirstName.setProps({ text: $v.$validation.first_name.$errors[0] });
+          }
+          if ($v.$validation.second_name.$invalid) {
+            errorElementSecondName.setProps({ text: $v.$validation.second_name.$errors[0] });
+          }
+          if ($v.$validation.email.$invalid) {
+            errorElementEmail.setProps({ text: $v.$validation.email.$errors[0] });
+          }
+          if ($v.$validation.phone.$invalid) {
+            errorElementPhone.setProps({ text: $v.$validation.phone.$errors[0] });
+          }
+          return;
+        }
+        console.log(formData);
+      },
     },
   }
 );
@@ -300,7 +442,7 @@ const HTMLregistrathion = new ProfileMainPage(
     InputFormFirstName: inputFormFirstName,
     InputFormSecondName : inputFormSecondName,
     InputFormPhone: inputFormPhone,
-    EditDateButton : editDateButton ,
+    EditDateButton: editDateButton ,
     EditPassowrdButton: editPassowrdButton,
     ExitButton: exitButton,
     // InputNameInChat: inputNameInChat,

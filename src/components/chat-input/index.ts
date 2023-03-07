@@ -6,6 +6,7 @@ import AttachButton from './components/attachButton/index';
 import Button from '../../components/button/index';
 import Input from '../../components/input/index';
 import { Validation, validationRules } from '~src/libs/validation/validation';
+import ChatList from '../chat-list/index';
 
 const formData = {
   message: '',
@@ -45,14 +46,15 @@ export default class ChatInput extends Block {
         },
       },
     });
-
     const sendButton = new Button('button', {
       text: 'send',
       events: {
-        click: (e) => {
+        click:  (e: Event) => {
           e.preventDefault();
           $v.$touch();
-          if ($v.$invalid) { return; }
+          if ($v.$invalid) {
+            console.log($v.$validation.message.$errors[0]);
+            return; }
           console.log(formData);
         },
       },

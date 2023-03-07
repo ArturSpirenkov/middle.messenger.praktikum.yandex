@@ -17,6 +17,7 @@ const formData = {
 const vRules = {
   login: [
     validationRules.required,
+    validationRules.notOnlyNumbers,
     validationRules.lengthBoundary(3,20),
   ],
   password: [
@@ -74,8 +75,8 @@ const inputElementLogin = new Input(
         errorElementLogin.setProps({ text: '' });
         inputElementLogin.offErrorInput();
       },
-      input: (event: any) => {
-        const target: any = event.target.value;
+      input: (event: Event) => {
+        const target = (event.target as HTMLInputElement).value;
         formData.login = target;
       },
     },
@@ -147,8 +148,8 @@ const inputElementPassword = new Input(
         errorElementPassword.setProps({ text: '' });
         inputElementPassword.offErrorInput();
       },
-      input: (event: any) => {
-        const target: any = event.target.value;
+      input: (event: Event) => {
+        const target = (event.target as HTMLInputElement).value;
         formData.password = target;
       },
     },
@@ -176,7 +177,7 @@ const loginButton = new Button(
     },
     text: 'Войти',
     events: {
-      click: (event) => {
+      click: (event: Event) => {
         event.preventDefault();
         $v.$touch();
         if ($v.$invalid) {

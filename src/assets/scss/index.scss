@@ -9,12 +9,15 @@ body {
 .routes {
   position: absolute;
   top: 50%;
-  right: 0;
+  right: 5px;
   z-index: 100;
+  & ul {
+    list-style: none;
+  }
   
   // .routes__link
 
   &__link {
-    font-size: 14px;
+    font-size: 16px;
   }
 }

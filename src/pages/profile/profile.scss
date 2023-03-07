@@ -68,16 +68,22 @@
       width: 510px;
       padding: 0;
       margin: 0;
+      &_blocked {
+        pointer-events: none;
+      }
     }
 
     // .profile__row-propertys
 
     &__row-propertys {
+      position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #EAEAEA;
       height: 35px;
+
+      
       &:nth-last-child(1) {
         border-bottom: 0px solid;
       }
@@ -118,6 +124,9 @@
   color: var.$bg-accent-one;
   width: 100%;
   font-size: 15px;
+  &_disable {
+    display: none;
+  }
 
   // .link_color-red
 
@@ -139,7 +148,11 @@
   
 }
 
-.property__supp-info{
-  display: none;
+.property__supp-info {
+  display: block;
+  position: absolute;
+  color: red;
+  top: 25%;
+  left: 15%;
   
 }

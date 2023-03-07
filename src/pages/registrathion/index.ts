@@ -26,12 +26,17 @@ const vRules = {
   ],
   login: [
     validationRules.required,
+    validationRules.notOnlyNumbers,
     validationRules.lengthBoundary(3,20),
   ],
   first_name: [
+    validationRules.isFirstLetterUppercase,
+    validationRules. doNotUseSpecialСharacters,
     validationRules.required,
   ],
   second_name: [
+    validationRules.isFirstLetterUppercase,
+    validationRules. doNotUseSpecialСharacters,
     validationRules.required,
   ],
   phone: [
@@ -97,8 +102,8 @@ const inputElementEmail = new Input(
       focus: () => {
         errorElementEmail.setProps({ text: '' });
       },
-      input: (event: any) => {
-        const target: any = event.target.value;
+      input: (event: Event) => {
+        const target = (event.target as HTMLInputElement).value;
         formData.email = target;
       },
     },
@@ -160,8 +165,8 @@ const inputElementLogin = new Input(
       focus: () => {
         errorElementLogin.setProps({ text: '' });
       },
-      input: (event: any) => {
-        const target: any = event.target.value;
+      input: (event: Event) => {
+        const target: string = (event.target as HTMLInputElement).value;
         formData.login = target;
       },
     },
@@ -223,8 +228,8 @@ const inputElementFirsName = new Input(
       focus: () => {
         errorElementFirstName.setProps({ text: '' });
       },
-      input: (event: any) => {
-        const target: any = event.target.value;
+      input: (event: Event) => {
+        const target = (event.target as HTMLInputElement).value;
         formData.first_name = target;
       },
     },
@@ -285,8 +290,8 @@ const inputElementSecondName = new Input(
       focus: () => {
         errorElementSecondName.setProps({ text: '' });
       },
-      input: (event: any) => {
-        const target: any = event.target.value;
+      input: (event: Event) => {
+        const target = (event.target as HTMLInputElement).value;
         formData.second_name = target;
       },
     },
@@ -348,8 +353,8 @@ const inputElementPhone = new Input(
       focus: () => {
         errorElementPhone.setProps({ text: '' });
       },
-      input: (event: any) => {
-        const target: any = event.target.value;
+      input: (event: Event) => {
+        const target = (event.target as HTMLInputElement).value;
         formData.phone = target;
       },
     },
@@ -411,8 +416,8 @@ const inputElementPassword = new Input(
       focus: () => {
         errorElementPassword.setProps({ text: '' });
       },
-      input: (event: any) => {
-        const target: any = event.target.value;
+      input: (event: Event) => {
+        const target = (event.target as HTMLInputElement).value;
         formData.password = target;
       },
     },
@@ -474,8 +479,8 @@ const inputElementPasswordAgain = new Input(
       focus: () => {
         errorElementPasswordAgain.setProps({ text: '' });
       },
-      input: (event: any) => {
-        const target: any = event.target.value;
+      input: (event: Event) => {
+        const target = (event.target as HTMLInputElement).value;
         formData.password_again = target;
       },
     },
@@ -504,7 +509,7 @@ const registrathionButton = new Button(
     },
     text: 'Зарегистрироваться',
     events: {
-      click: (event) => {
+      click: (event: Event) => {
         event.preventDefault();
         $v.$touch();
         if ($v.$invalid) {

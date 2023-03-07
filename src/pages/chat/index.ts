@@ -135,9 +135,9 @@ const chatItems = new ChatList('ul', {
     class: 'chat-list',
   },
   events: {
-    click: (event: any) => {
-      const chatItem = event.target.closest('.chat-item');
-      const chatId = chatItem.dataset.chatId;
+    click: (event: Event) => {
+      const chatItem = (event.target as HTMLInputElement).closest('.chat-item') as HTMLDivElement;
+      const chatId = chatItem?.dataset.chatId;
       // TODO: API request
       // const chatMessages = await fetch('./getMessages', {params: {id: chatId}})
       chatMessages = mockChatMessages[chatId as keyof typeof mockChatMessages].map((message) => {
